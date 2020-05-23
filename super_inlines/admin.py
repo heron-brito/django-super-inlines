@@ -129,6 +129,12 @@ class SuperModelAdmin(ModelAdmin):
         formsets, inline_instances = super(
             SuperModelAdmin, self)._create_formsets(request, obj, change)
         logger.warning(inline_instances)
+        logger.warning('dir(inline_instances)')
+        logger.warning(dir(inline_instances))
+        logger.warning('vars(inline_instances)')
+        logger.warning(vars(inline_instances))
+        logger.warning('formset')
+        logger.warning(formsets)
         for formset, inline_instance in zip(formsets, inline_instances):
             logger.warning(inline_instances)
             if not isinstance(inline_instance, SuperInlineModelAdmin):
