@@ -5,7 +5,7 @@ from collections import defaultdict
 
 from django.contrib.admin import helpers
 from django.contrib.admin.options import InlineModelAdmin, ModelAdmin
-
+import logging
 
 class SuperInlineModelAdmin(InlineModelAdmin):
     inlines = ()
@@ -13,6 +13,12 @@ class SuperInlineModelAdmin(InlineModelAdmin):
     def get_inline_instances(self, request, obj=None):
         inline_instances = []
         for inline_class in self.inlines:
+            logger.warning('inline_class')
+            logger.warning(inline_class)
+            logger.warning('self.model')
+            logger.warning(self.model)
+            logger.warning('self.admin_site')
+            logger.warning(self.admin_site)
             inline = inline_class(self.model, self.admin_site)
             if request:
                 if not (inline.has_add_permission(request) or
