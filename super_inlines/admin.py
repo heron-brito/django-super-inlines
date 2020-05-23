@@ -26,7 +26,7 @@ class SuperInlineModelAdmin(InlineModelAdmin):
             inline_instances.append(inline)
 
         return inline_instances
-'''    
+        '''    
         inline_instances = []
         for inline_class in self.inlines:
             logger.warning('inline_class')
@@ -46,7 +46,7 @@ class SuperInlineModelAdmin(InlineModelAdmin):
             inline_instances.append(inline)
 
         return inline_instances
-'''
+        '''
 
     def get_formsets_with_inlines(self, request, obj=None):
         """
