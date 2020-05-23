@@ -34,7 +34,6 @@ Example usage:
 
 from django.db import models
 
-
 class Owner(models.Model):
     id                 = models.AutoField(primary_key=True)
     data_criacao       = models.DateField(auto_now_add=True)
@@ -67,6 +66,7 @@ class Room(models.Model):
     def __str__(self):
         return str(self.id)
 
+..
 .. code-block:: python
 
     from django.contrib.admin import TabularInline, StackedInline, site
