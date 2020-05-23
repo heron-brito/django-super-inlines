@@ -25,6 +25,7 @@ class SuperInlineModelAdmin(InlineModelAdmin):
             logger.warning(self.model)
             logger.warning('self.admin_site')
             logger.warning(self.admin_site)
+            '''
             inline = inline_class(self.model, self.admin_site)
             if request:
                 if not (inline.has_view_or_change_permission(request, obj) or
@@ -33,7 +34,10 @@ class SuperInlineModelAdmin(InlineModelAdmin):
                     continue
                 if not inline.has_add_permission(request, obj):
                     inline.max_num = 0
-            inline_instances.append(inline)
+            '''
+            #inline_instances.append(inline)
+            inline_instances.append(inline_class)
+            
 
         return inline_instances
         '''    
