@@ -125,7 +125,7 @@ class SuperInlineModelAdmin(InlineModelAdmin):
 
 class SuperModelAdmin(ModelAdmin):
     def _create_formsets(self, request, obj, change):
-        logger.warning('\n--------------  SuperModelAdmin: _create_formsets  ----------------')        
+        logger.warning('\n--------------  SuperModelAdmin: _create_formsets  0.0.1 ----------------')        
         formsets, inline_instances = super(
             SuperModelAdmin, self)._create_formsets(request, obj, change)
         logger.warning(inline_instances)
