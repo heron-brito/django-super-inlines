@@ -121,10 +121,14 @@ class SuperInlineModelAdmin(InlineModelAdmin):
 
 class SuperModelAdmin(ModelAdmin):
     def _create_formsets(self, request, obj, change):
-        logger.warning('\n--------------  SuperModelAdmin: _create_formsets  ----------------')           
+        logger.warning('\n--------------  SuperModelAdmin: _create_formsets  ----------------')
+        logger.warning(inline_instances)
+        
         formsets, inline_instances = super(
             SuperModelAdmin, self)._create_formsets(request, obj, change)
+        logger.warning(inline_instances)
         for formset, inline_instance in zip(formsets, inline_instances):
+            logger.warning(inline_instances)
             if not isinstance(inline_instance, SuperInlineModelAdmin):
                 continue
             for index, form in enumerate(formset.forms):
