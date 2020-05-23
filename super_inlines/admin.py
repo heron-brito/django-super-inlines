@@ -18,6 +18,10 @@ class SuperInlineModelAdmin(InlineModelAdmin):
         logger.warning('obj')
         logger.warning(type(obj))
         logger.warning(obj)
+        logger.warning('dir(obj)')
+        logger.warning(dir(obj)
+        logger.warning('vars(obj)')
+        logger.warning(vars(obj))
         for inline_class in self.get_inlines(request, obj):
             logger.warning('inline_class')
             logger.warning(type(inline_class))
