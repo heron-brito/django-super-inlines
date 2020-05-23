@@ -14,7 +14,7 @@ class SuperInlineModelAdmin(InlineModelAdmin):
 
     def get_inline_instances(self, request, obj=None):
         inline_instances = []
-        logger.warning('\n------------------------------')
+        logger.warning('\n--------------  get_inline_instances  ----------------')
         logger.warning('obj')
         logger.warning(type(obj))
         logger.warning(obj)
@@ -66,11 +66,13 @@ class SuperInlineModelAdmin(InlineModelAdmin):
         """
         Yields formsets and the corresponding inlines.
         """
+        logger.warning('\n--------------  get_formsets_with_inlines  ----------------')        
         for inline in self.get_inline_instances(request, obj):
             yield inline.get_formset(request, obj), inline
 
     def _create_formsets(self, request, obj, change, index, is_template):
         "Helper function to generate formsets for add/change_view."
+        logger.warning('\n--------------  _create_formsets  ----------------')          
         formsets = []
         inline_instances = []
         prefixes = defaultdict(int)
@@ -105,6 +107,7 @@ class SuperInlineModelAdmin(InlineModelAdmin):
 
     def get_inline_formsets(self, request, formsets, inline_instances,
                             obj=None):
+        logger.warning('\n--------------  get_inline_formsets  ----------------')          
         inline_admin_formsets = []
         for inline, formset in zip(inline_instances, formsets):
             fieldsets = list(inline.get_fieldsets(request, obj))
@@ -118,6 +121,7 @@ class SuperInlineModelAdmin(InlineModelAdmin):
 
 class SuperModelAdmin(ModelAdmin):
     def _create_formsets(self, request, obj, change):
+        logger.warning('\n--------------  SuperModelAdmin: _create_formsets  ----------------')           
         formsets, inline_instances = super(
             SuperModelAdmin, self)._create_formsets(request, obj, change)
         for formset, inline_instance in zip(formsets, inline_instances):
