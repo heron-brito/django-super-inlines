@@ -1,15 +1,15 @@
 # coding: utf-8
 
+
 from __future__ import unicode_literals
 from django.template import Library
-
 from ..admin import SuperInlineModelAdmin
 
 
 register = Library()
+register_tag = register.simple_tag
 
-
-@register.simple_tag(takes_context=True)
+@register_tag(takes_context=True)
 def get_sub_inline_formsets(context, inline, original, index, is_template):
     if not isinstance(inline, SuperInlineModelAdmin):
         return ()
