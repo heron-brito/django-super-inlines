@@ -32,6 +32,33 @@ Example usage:
 
 .. code-block:: python
 
+from django.db import models
+
+
+class Owner(models.Model):
+    id                 = models.AutoField(primary_key=True)
+
+    def __str__(self):
+        return str(self.id)
+
+
+class House(models.Model):
+    id                 = models.AutoField(primary_key=True)
+    owner              = models.ForeignKey('Owner', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.id)
+
+
+class Room(models.Model):
+    id                 = models.AutoField(primary_key=True)
+    house              = models.ForeignKey('House', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.id)
+
+.. code-block:: python
+
     from django.contrib.admin import TabularInline, StackedInline, site
     from super_inlines.admin import SuperInlineModelAdmin, SuperModelAdmin
 
