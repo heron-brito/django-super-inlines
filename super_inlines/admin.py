@@ -14,6 +14,7 @@ class SuperInlineModelAdmin(InlineModelAdmin):
 
     def get_inline_instances(self, request, obj=None):
         inline_instances = []
+        logger.warning('\n------------------------------')
         logger.warning('obj')
         logger.warning(type(obj))
         logger.warning(obj)
