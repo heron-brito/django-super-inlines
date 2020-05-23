@@ -6,6 +6,8 @@ from collections import defaultdict
 from django.contrib.admin import helpers
 from django.contrib.admin.options import InlineModelAdmin, ModelAdmin
 import logging
+logger = logging.getLogger(__name__)
+
 
 class SuperInlineModelAdmin(InlineModelAdmin):
     inlines = ()
