@@ -37,6 +37,10 @@ from django.db import models
 
 class Owner(models.Model):
     id                 = models.AutoField(primary_key=True)
+    data_criacao       = models.DateField(auto_now_add=True)
+    nome               = models.CharField(max_length=15, null=True, default='', blank=True, help_text="preencha o nome", )
+    teste              = models.CharField(max_length=15, null=True, default='', blank=True, help_text="preencha o teste", db_column='tb_teste' )
+    teste2             = models.CharField(max_length=5, null=True, default='', blank=True, help_text="preencha o teste", db_column='tb_teste2' )
 
     def __str__(self):
         return str(self.id)
@@ -45,6 +49,9 @@ class Owner(models.Model):
 class House(models.Model):
     id                 = models.AutoField(primary_key=True)
     owner              = models.ForeignKey('Owner', on_delete=models.CASCADE)
+    nome               = models.CharField(max_length=15, null=True, default='', blank=True, help_text="preencha o nome", )
+    teste              = models.CharField(max_length=15, null=True, default='', blank=True, help_text="preencha o teste", db_column='tb_teste' )
+    teste2             = models.CharField(max_length=5, null=True, default='', blank=True, help_text="preencha o teste", db_column='tb_teste2' )
 
     def __str__(self):
         return str(self.id)
@@ -53,6 +60,9 @@ class House(models.Model):
 class Room(models.Model):
     id                 = models.AutoField(primary_key=True)
     house              = models.ForeignKey('House', on_delete=models.CASCADE)
+    nome               = models.CharField(max_length=15, null=True, default='', blank=True, help_text="preencha o nome", )
+    teste              = models.CharField(max_length=15, null=True, default='', blank=True, help_text="preencha o teste", db_column='tb_teste' )
+    teste2             = models.CharField(max_length=5, null=True, default='', blank=True, help_text="preencha o teste", db_column='tb_teste2' )
 
     def __str__(self):
         return str(self.id)
