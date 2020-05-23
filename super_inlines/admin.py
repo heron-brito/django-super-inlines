@@ -14,8 +14,12 @@ class SuperInlineModelAdmin(InlineModelAdmin):
 
     def get_inline_instances(self, request, obj=None):
         inline_instances = []
+        logger.warning('obj')
+        logger.warning(type(obj))
+        logger.warning(obj)
         for inline_class in self.get_inlines(request, obj):
             logger.warning('inline_class')
+            logger.warning(type(inline_class))
             logger.warning(inline_class)
             logger.warning('self.model')
             logger.warning(self.model)
