@@ -15,6 +15,12 @@ class SuperInlineModelAdmin(InlineModelAdmin):
     def get_inline_instances(self, request, obj=None):
         inline_instances = []
         for inline_class in self.get_inlines(request, obj):
+            logger.warning('inline_class')
+            logger.warning(inline_class)
+            logger.warning('self.model')
+            logger.warning(self.model)
+            logger.warning('self.admin_site')
+            logger.warning(self.admin_site)
             inline = inline_class(self.model, self.admin_site)
             if request:
                 if not (inline.has_view_or_change_permission(request, obj) or
