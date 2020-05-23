@@ -131,8 +131,8 @@ class SuperModelAdmin(ModelAdmin):
         logger.warning(inline_instances)
         logger.warning('dir(inline_instances)')
         logger.warning(dir(inline_instances))
-        logger.warning('vars(inline_instances)')
-        logger.warning(vars(inline_instances))
+        #logger.warning('vars(inline_instances)')
+        #logger.warning(vars(inline_instances))
         logger.warning('formset')
         logger.warning(formsets)
         for formset, inline_instance in zip(formsets, inline_instances):
